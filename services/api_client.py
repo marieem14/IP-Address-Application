@@ -1,6 +1,7 @@
 
 
 import requests
+import ipaddress
 
 
 class APIClient:
@@ -42,7 +43,7 @@ class APIClient:
         except requests.exceptions.RequestException:
             return None
     def get_geolocation(self, ip):
-        if not ip:
+        if not self.is_valid_ip(ip):
             return None
 
         url = f"http://ip-api.com/json/{ip}"
@@ -60,3 +61,11 @@ class APIClient:
             return None
         except (requests.exceptions.RequestException, ValueError, KeyError):
             return None
+    def is_valid_ip(self, ip):
+        if not ip:
+            return False
+        try:
+            ipaddress.ip_address(ip)
+            return True
+        except ValueError:
+            return False
