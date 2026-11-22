@@ -1,14 +1,12 @@
-# IP-Address-Application
-
 # IP Address Application
 
 ## 1. Présentation du projet
 
-**IP Address Application** est un projet réalisé dans le cadre du cours Cisco.
+IP Address Application est un projet réalisé dans le cadre du cours de réseaux informatiques et du programme Cisco.
 
 L'objectif est de développer une application en Python permettant de récupérer et d'afficher les informations relatives à l'adresse IP publique de l'utilisateur.
 
-L'application vise à prendre en charge les deux versions du protocole IP : IPv4 et IPv6.
+L'application prend en considération les deux versions du protocole Internet : IPv4 et IPv6.
 
 ## 2. Objectifs du projet
 
@@ -21,29 +19,30 @@ Les principaux objectifs sont :
 - Afficher les informations récupérées dans une application Python.
 - Utiliser la programmation orientée objet (POO).
 - Communiquer avec des API REST et traiter les données JSON.
+- Appliquer les principes du travail collaboratif avec Git et GitHub.
 
-## 3. Technologies utilisées
+## 3. Technologies et outils utilisés
 
-| Technologie   | Utilisation                                |
-| ------------- | ------------------------------------------ |
-| Python        | Langage de programmation                   |
-| POO           | Organisation du programme avec des classes |
-| Requests      | Communication avec les API REST            |
-| JSON          | Échange et traitement des données          |
-| ipaddress     | Validation des adresses IPv4 et IPv6       |
-| Pytest        | Tests unitaires                            |
-| Git et GitHub | Gestion du code et collaboration           |
+| Technologie        | Utilisation                                |
+| ------------------ | ------------------------------------------ |
+| Python             | Développement de l'application             |
+| POO                | Organisation du programme avec des classes |
+| Requests           | Communication avec les API REST            |
+| JSON               | Traitement des réponses des API            |
+| ipaddress          | Validation des adresses IP                 |
+| Pytest             | Exécution des tests                        |
+| Git                | Gestion des versions                       |
+| GitHub             | Hébergement et collaboration               |
+| Visual Studio Code | Environnement de développement             |
 
 ## 4. APIs utilisées
 
 Le projet utilise des services externes pour récupérer les informations IP.
 
-- **ipify** : service utilisé pour récupérer les adresses IP publiques.
-- **IP-API** : service utilisé pour obtenir des informations de géolocalisation associées à une adresse IP, comme le pays, la ville et le fournisseur Internet (ISP).
+- **ipify** : récupération des adresses IP publiques IPv4 et IPv6.
+- **IP-API** : récupération des informations de géolocalisation associées à une adresse IP, notamment le pays, la ville et le fournisseur Internet (ISP).
 
-Exemple d'endpoint utilisé pour la géolocalisation :
-
-`http://ip-api.com/json/{ip}`
+Les informations dépendent de la disponibilité des services API et de la connexion Internet.
 
 ## 5. Structure du projet
 
@@ -51,68 +50,56 @@ Exemple d'endpoint utilisé pour la géolocalisation :
 IP-Address-Application/
 │
 ├── models/
+│   ├── __init__.py
 │   └── ip_address.py
 │
 ├── services/
+│   ├── __init__.py
 │   └── api_client.py
 │
 ├── application/
+│   ├── __init__.py
 │   └── ip_application.py
 │
 ├── utils/
+│   ├── __init__.py
 │   └── ip_validator.py
 │
 ├── tests/
-│   └── test_api_client.py
+│   ├── test_api_client.py
+│   ├── test_ip_address.py
+│   └── test_ip_validator.py
 │
 ├── main.py
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
-## 6. Travail réalisé jusqu'à présent
+## 6. Organisation du travail
 
-Le développement du projet est organisé en plusieurs parties.
+Le projet est réalisé par une équipe de trois membres :
 
-### Partie 1 : Initialisation du projet
+- **Membre 1 :** développement de la classe IPAddress et des fonctions de validation des adresses IP.
+- **Membre 2 :** développement du client API pour récupérer les adresses IP et les informations de géolocalisation.
+- **Membre 3 :** Scrum Leader, organisation du dépôt GitHub, documentation, suivi des contributions et intégration des différents modules.
 
-- Création du dépôt GitHub.
-- Organisation initiale des fichiers et des dossiers.
-- Configuration de l'environnement de travail.
-- Mise en place du travail collaboratif avec Git et GitHub.
+Chaque membre travaille sur sa partie et les modifications sont regroupées dans la branche principale après vérification.
 
-### Partie 2 : Développement du client API
+## 7. Travail réalisé
 
-Cette partie a été réalisée par le deuxième membre du groupe.
+Les premières étapes du projet comprennent :
 
-Le fichier `services/api_client.py` contient la classe `APIClient`, chargée de communiquer avec les services externes.
+- La création et l'organisation du dépôt GitHub.
+- La mise en place de l'accès collaboratif pour les membres.
+- Le clonage du dépôt dans l'environnement local.
+- La préparation de la structure du projet.
+- Le développement des modules de gestion des adresses IP et de communication avec les API.
+- La création des premiers tests.
+- La mise à jour de la documentation du projet.
+- La préparation du fichier des dépendances Python.
 
-Le travail réalisé comprend :
-
-- L'utilisation de la bibliothèque `requests`.
-- La récupération des informations relatives aux adresses IP.
-- La récupération des informations de géolocalisation.
-- La validation d'une adresse IP avant de demander ses informations.
-- La gestion des erreurs liées aux requêtes HTTP.
-
-Une validation supplémentaire a été intégrée avec le module Python `ipaddress`.
-
-### Partie 3 : Tests
-
-Des tests unitaires ont été ajoutés avec `pytest` afin de vérifier le fonctionnement du client API et de la validation des adresses IP.
-
-## 7. Travail restant
-
-Les prochaines étapes du projet sont :
-
-- Développer la classe `IPAddress` et ses attributs.
-- Finaliser le module de validation des adresses IP.
-- Développer la partie principale de l'application.
-- Intégrer les différentes parties développées par les membres.
-- Tester le fonctionnement global de l'application.
-- Finaliser la documentation du projet.
-
-## 8. Installation et exécution
+## 8. Installation des dépendances
 
 ### Prérequis
 
@@ -120,47 +107,51 @@ Les prochaines étapes du projet sont :
 - Git installé.
 - Visual Studio Code recommandé.
 
-### Installation
-
-Cloner le dépôt GitHub :
+### Clonage du dépôt
 
 ```bash
 git clone URL_DU_DEPOT
 ```
 
-Accéder au dossier du projet :
+Accéder au dossier :
 
 ```bash
 cd IP-Address-Application
 ```
 
-Installer les dépendances :
+### Installation des bibliothèques
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+```
+
+## 9. Exécution et tests
+
+Après l'intégration de tous les modules, l'application pourra être lancée avec :
+
+```bash
+python main.py
 ```
 
 Pour exécuter les tests :
 
 ```bash
-pip install pytest
-pytest
+python -m pytest -v
 ```
 
-L'exécution principale de l'application sera disponible après l'intégration de tous les modules.
+## 10. Travail restant
 
-## 9. Travail collaboratif
+Les étapes à finaliser sont :
 
-Le projet est réalisé par une équipe de trois membres.
+- Vérifier la compatibilité entre les différents modules.
+- Finaliser l'intégration de la classe IPAddress et du client API.
+- Finaliser le programme principal.
+- Tester le fonctionnement global de l'application.
+- Corriger les erreurs éventuelles.
+- Vérifier la documentation et préparer la démonstration finale.
 
-- **Membre 1 :** Programmation Orientée Objet et gestion des adresses IP.
-- **Membre 2 :** Communication avec les API REST et récupération des informations.
-- **Membre 3 :** Scrum Leader, organisation du projet, intégration des modules et documentation.
-
-La collaboration est assurée par Git et GitHub, avec des branches séparées et des Pull Requests pour intégrer les modifications dans la branche principale `main`.
-
-## 10. Conclusion
+## 11. Conclusion
 
 Ce projet permet de mettre en pratique les connaissances en Python, en programmation orientée objet, en réseaux informatiques et en communication avec les API REST.
 
-Il permet également de développer les compétences en travail collaboratif et en gestion de versions avec Git et GitHub.
+Il permet également de développer les compétences en gestion de versions, en collaboration et en organisation d'un projet informatique.
